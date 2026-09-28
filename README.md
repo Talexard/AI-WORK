@@ -2,3 +2,4 @@
 ## Guides
 
 - [Making AI video that looks real: Seedance + Genjutsu](guides/seedance-genjutsu-realism.md): which tool to use when, how to match the lighting so nothing looks pasted on, prompt templates, and a realism QC checklist.
+- [Going viral with AI content](guides/going-viral-with-ai-content.md): how the TikTok, Reels and Shorts algorithms rank videos, hook, retention and loop structure, AI formats that spread, a posting workflow, and rules that keep your account safe.
