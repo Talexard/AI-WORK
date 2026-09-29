@@ -22,18 +22,18 @@ A working guide to generating and editing AI video with **Seedance** (ByteDance'
 | | Seedance 2.0 | Seedance 2.5 |
 |---|---|---|
 | Length per generation | 4–15 s | 4–30 s |
-| Resolution | 480p up to 4K | 480p / 720p |
+| Resolution | 480p up to 4K | 480p / 720p / 1080p native (some hosts advertise 4K) |
 | Max references | 12 (9 images, 3 videos, 3 audio) | 50 (30 images, 10 videos, 10 audio) |
-| Pick it for | Final resolution, lower cost | Longer takes, multi-shot story beats, heavy referencing |
+| Pick it for | 4K masters, lower cost | Longer takes, multi-shot story beats, heavy referencing, Edit and Extend modes |
 
-A practical pattern: **plan and test in 2.5** (long and cheap at 480p), then **render the finals in 2.0** at 1080p or 4K when a shot fits in 15 s.
+A practical pattern: **test at 480p**, then render finals at **1080p in 2.5**. Use **2.0** only when you need a 4K master and the shot fits in 15 s. For step-by-step beginner and advanced use, see the [Seedance 2.5 + Genjutsu playbook](seedance-2-5-and-genjutsu-playbook.md).
 
 ### Genjutsu modes
 
 - **Motion Transfer**: keeps the source clip's motion, camera and timing and **rebuilds everything else** (new person, new place, new look) from your references.
 - **Object Swap**: changes **one selected thing** (character, outfit, product, location, object) and leaves the rest of the shot as it was.
 
-Limits: source video **3–30 s**, up to **40 reference images**, output up to **1080p**. A 15 s clip costs about **40 credits at 480p, 104 at 720p and 144 at 1080p**. The app shows the cost before you run it.
+Limits: source video about **4–30 s** (10–15 s works best), up to **30–40 reference images** (sources differ), output up to **1080p**. A 15 s clip costs about **40 credits at 480p, 104 at 720p and 144 at 1080p**. The app shows the cost before you run it.
 
 ---
 
@@ -176,7 +176,7 @@ Consistent character, no drift.
 
 ### Step-by-step
 
-1. **Film or pick a good source clip** (see "source rules" below). It should be 3–30 s long.
+1. **Film or pick a good source clip** (see "source rules" below). It should be about 4–30 s long; 10–15 s works best.
 2. **Pick the mode**:
    - Changing **one thing** (outfit, product, one person, the background)? Use **Object Swap**.
    - Keeping only the **movement and camera** and rebuilding the rest? Use **Motion Transfer**.
