@@ -1,65 +1,61 @@
-# Avatar Concepts: Black lead, European hairstyle
+# Avatar Concepts, Round 3: African American lead with a British bob
 
 ## What the trend does (Jean Phil, Clarabelle, Margot, Farquaad)
-- **One oversized period hairstyle** that makes the character recognizable from the silhouette alone. Almost all of them wear a **bob**.
-- **A period costume** (houndstooth, tweed, velvet) shown in **an ordinary modern place** (office park, crosswalk, bus stop)
-- **A straight face** and **one silent repeated move** (shadowboxing, a stiff dance)
+- **An oversized bob** that makes the character recognizable from the outline alone
+- **A period costume** in **an ordinary modern place**
+- **A straight face** and **one silent repeated move**
 - **Shared lore:** the characters mention each other ("On my way, Jean.")
 
-**How we stand apart:** no bobs, a signature action that isn't a dance, and a character whose attitude you can read without any words.
+**How we stand apart:** we keep the bob, since that's what people recognize, and change three things:
+1. **A bold bob color that isn't blond:** jet black, platinum, burgundy, chestnut, copper
+2. **A British job** as the costume, instead of "random person from another century"
+3. **A gag that comes from the job**, instead of dancing. A job gives you endless episodes with no extra setup.
+
+Round 2 (Eurovision diva, matador, 80s fitness coach, tennis pro, Alpine shepherdess) was dropped because it didn't use the bob.
 
 ---
 
-## 1. Lord Ambrose, the Baroque critic
-- **Hair:** a huge white powdered periwig with long cascading curls, like Louis XIV
-- **Look:** deep plum velvet frock coat, gold embroidery, lace cravat, one beauty mark, a quizzing glass (a monocle on a stick)
-- **Signature bit:** silently rates modern things with open disgust. Examples: a gas-station hot dog, a Crocs display, a self-checkout. He lifts the quizzing glass, pauses, then slowly waves the thing away with a lace handkerchief.
-- **Settings:** a laundromat, a Walmart aisle, a drive-thru, a gym
-- **Genjutsu notes:** the wig is **very wide**, so film the source from mid-thigh up with lots of space above the head and on both sides. The white wig shows every lighting mistake, so it's great for testing.
-- **Image prompt:**
-  `Portrait of a dark-skinned Black man in his 30s wearing an enormous white powdered Baroque periwig with long cascading curls, plum velvet frock coat with gold embroidery, white lace cravat, small beauty mark on cheek, holding a gold quizzing glass, deadpan disdainful expression, soft even daylight, plain light-grey background, full upper body, photorealistic, 9:16`
+## 1. Barrington, the butler
+- **Bob:** jet-black, glossy, blunt pageboy with a heavy fringe
+- **Look:** black tailcoat, grey waistcoat, white bow tie, white gloves
+- **Gag:** silently serves strangers absurd things on a silver tray, like one chicken nugget, a single grape or a parking ticket. He bows and walks off.
+- **Settings:** bus stops, gym floors, a drive-thru window, a laundromat
+- **Caption hook:** "Your 4 o'clock, sir."
 
-## 2. Professor Bartholomew, the Victorian mutton-chop man
-- **Hair:** a severe, glossy, center-parted Victorian cut with **enormous mutton-chop sideburns**
-- **Look:** tweed three-piece suit, pocket watch on a chain, round wire spectacles, high starched collar
-- **Signature bit:** times everything with the pocket watch and silently shakes his head. Examples: a microwave, someone's TikTok dance, the subway doors. He also measures random objects with a brass ruler and writes notes.
-- **Settings:** subway platforms, the DMV, a parking lot, a Starbucks line
-- **Genjutsu notes:** the easiest to frame because the hair stays close to the head. The watch and ruler are small props, so keep the hands clearly visible in the source clip.
-- **Image prompt:**
-  `Portrait of a Black man in his 40s with a glossy severe center-parted Victorian haircut and very large mutton-chop sideburns, round wire spectacles, brown tweed three-piece suit, high starched collar, brass pocket-watch chain, holding the open watch, deadpan stern expression, soft even daylight, plain light-grey background, full upper body, photorealistic, 9:16`
+## 2. Penelope, the 1960s stewardess
+- **Bob:** sleek platinum-silver bob, angled so it's longer at the front, with a pillbox hat
+- **Look:** powder-blue 1960s airline skirt suit, white gloves, silk neck scarf
+- **Gag:** performs the full airline safety demonstration wherever she is: pointing out the exits at a gas station, the oxygen mask in an elevator, the brace position on an escalator
+- **Why it works for Genjutsu:** the safety demo is a fixed set of gestures you can film yourself doing, which makes it the easiest to motion-transfer
 
-## 3. Madame Céleste, the 1960s Paris beehive
-- **Hair:** a **towering glossy beehive**, a foot tall, with a sharp flipped fringe and cat-eye liner
-- **Look:** 1950s–60s Dior-style fitted dress in emerald or mustard, white opera gloves, pearls, tiny handbag
-- **Signature bit:** does a slow runway walk through ordinary places. Then she stops, does a sharp head turn straight at the camera, and holds still for 2 seconds. Sometimes she's eating something messy with perfect manners (wings, a burrito).
-- **Settings:** Costco, a car wash, a basketball court, a bodega
-- **Genjutsu notes:** the height is a **framing risk**. Film the source with at least 30% of the frame above the head. The walk needs a steady tracking shot, so use a gimbal or a walk toward a still camera.
-- **Image prompt:**
-  `Portrait of a dark-skinned Black woman in her late 20s with a towering glossy 1960s beehive hairstyle and flipped fringe, dramatic cat-eye eyeliner, emerald fitted 1950s couture dress, white opera gloves, pearl necklace, small structured handbag, deadpan elegant expression, soft even daylight, plain light-grey background, full body with ample headroom, photorealistic, 9:16`
+## 3. Umpire Ellis, the cricket umpire
+- **Bob:** deep burgundy-red chin-length bob with a blunt fringe
+- **Look:** long white umpire coat, white wide-brim hat, sweaters tied around the waist
+- **Gag:** gives the cricket "OUT" signal (one finger straight up) for everyday offenses, like a car parked across two spaces, pineapple on pizza, or someone replying "k"
+- **Why it hooks:** people will argue in the comments about what deserves an "OUT", and the stiff finger is instantly recognizable
 
-## 4. General Augustin, the Napoleonic windswept
-- **Hair:** Napoleonic "Brutus" cut, with short, dramatic, windswept curls pushed forward and long side whiskers
-- **Look:** navy military coat with gold epaulets, a red sash, a sword belt with no sword, one hand tucked into the coat
-- **Signature bit:** takes command of situations nobody asked him to. He points dramatically and silently directs pigeons, shopping carts or a crosswalk. When anything goes wrong, he tucks his hand back into his coat and stares into the distance.
-- **Settings:** parking lots, a school pickup line, a duck pond, a traffic cone
-- **Genjutsu notes:** epaulets widen the shoulders, so give the sides some room. The pointing arm goes out to full reach, so frame for the extended arm, not the resting pose.
-- **Image prompt:**
-  `Portrait of a Black man in his 30s with a Napoleonic Brutus haircut of short windswept forward curls and long side whiskers, navy Napoleonic military coat with gold epaulets and red sash, one hand tucked into the coat front, stern commanding gaze into the distance, soft even daylight, plain light-grey background, full upper body, photorealistic, 9:16`
+## 4. Sir Tobias, tea at any cost
+- **Bob:** rich chestnut 1960s mop-top bob under a bowler hat
+- **Look:** navy pinstripe three-piece suit, rolled umbrella
+- **Gag:** at 4 o'clock, no matter where he is, he sets up a full tea service: a fast-food line, a traffic jam, the middle of a basketball game
+- **Series idea:** a recurring bit where every video is somewhere more chaotic
 
-## 5. Duo option: Ambrose and Céleste
-Builds the kind of shared lore that makes Jean Phil and Clarabelle work. The two are rivals who keep showing up in the same ordinary places. **Caption hook:** "Céleste, not in the Costco."
+## 5. Nanny Pemberton
+- **Bob:** glossy copper-auburn chin bob with a side-swept fringe
+- **Look:** navy double-breasted coat, Peter Pan collar, small felt hat, umbrella
+- **Gag:** pushes a vintage English pram, and the "baby" is always something absurd: a rotisserie chicken, a cat in sunglasses, a PS5
+- **Lore:** she's the one who "looks after" the other characters
 
 ---
 
 ## Review
 
-| # | Concept | Silhouette in a thumbnail | Different from the bob trend | Genjutsu difficulty | Ideas for future episodes |
+| # | Character | Stands out in a thumbnail | Different from Jean Phil | Ease in Genjutsu | Ideas for future episodes |
 |---|---|---|---|---|---|
-| 1 | Lord Ambrose (periwig) | ★★★★★ | ★★★★★ | Medium (wide wig) | ★★★★★ (anything can be judged) |
-| 2 | Prof. Bartholomew (mutton chops) | ★★★☆☆ | ★★★★☆ | Easy | ★★★★☆ |
-| 3 | Madame Céleste (beehive) | ★★★★★ | ★★★★☆ | Hard (height, walking) | ★★★★☆ |
-| 4 | General Augustin (Napoleonic) | ★★★★☆ | ★★★★★ | Medium (arm reach) | ★★★★☆ |
+| 1 | Barrington | ★★★★☆ | ★★★★★ | Easy (small movements) | ★★★★★ |
+| 2 | Penelope | ★★★★★ | ★★★★★ | **Easiest** (you can film the demo yourself) | ★★★★☆ |
+| 3 | Umpire Ellis | ★★★★☆ | ★★★★★ | Easy (one gesture) | ★★★★★ (comments supply the ideas) |
+| 4 | Sir Tobias | ★★★★☆ | ★★★★☆ | Medium (tea-set props) | ★★★★☆ |
+| 5 | Nanny Pemberton | ★★★★☆ | ★★★★★ | Medium (pram and prop) | ★★★★☆ |
 
-**Recommendation: start with #1, Lord Ambrose.** The white periwig is the loudest silhouette of the four and looks nothing like a bob. "An aristocrat judging modern life" gives you endless episodes, and a silent reaction bit is easier to generate cleanly than dancing. Add Céleste as his rival once Ambrose is getting views.
-
-**Before generating:** make a 4-angle reference sheet (front, three-quarter, profile, back) under one even light, using the image prompts above. Then follow the playbook's framing and lighting checklist.
+**Recommendation:** go with **Penelope** or **Umpire Ellis**. Both rely on one fixed gesture, which is the easiest thing for Genjutsu to copy cleanly and the most recognizable to viewers. Barrington works well as a second character, and his "serving" bit makes a natural crossover with anyone else.
