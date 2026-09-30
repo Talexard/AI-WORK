@@ -1,4 +1,4 @@
-# Character Bible: the Café Man (working name)
+# Character Bible: Baptiste Bonsoir (@baptiste.bonsoir)
 
 ## Official look (locked Sept 30, 2026)
 - **Master image:** Higgsfield job `5dc0ab08-b715-4945-a557-ceeeb8468b29`
