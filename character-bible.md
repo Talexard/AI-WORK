@@ -26,3 +26,7 @@
 - "Fluffy" makes the hair crimped. Use "silky smooth".
 - "Selfie" puts a phone in the shot. Say "front-camera point of view, phone not visible".
 - Avoid a raised-fist gesture. It reads as a political salute.
+
+## Profile
+- **TikTok profile pic:** café version (Higgsfield job `ab724e24-23aa-427b-ac12-288661f6f4cc`), cropped tight on his face
+- **Bio idea:** "Bonsoir. 🥐 | I don't talk. I dance."
