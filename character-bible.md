@@ -3,6 +3,7 @@
 ## Official look (locked Sept 30, 2026)
 - **Master image:** Higgsfield job `5dc0ab08-b715-4945-a557-ceeeb8468b29`
   https://d8j0ntlcm91z4.cloudfront.net/user_3BLBmswBdHcqOVLqEKRJo41N5Jp/hf_20260930_003114_5dc0ab08-b715-4945-a557-ceeeb8468b29.png
+- **Reference sheets:** turnaround `4b98f560-2db7-4162-88fa-4c469a54793d` (front, 3/4, side, back) and split-screen `9616cbbd-3c4c-4535-9622-bc7125a54f2a` (full body plus close-up)
 - To keep him consistent, pass this job ID as an image reference in every new generation.
 
 ## Description
