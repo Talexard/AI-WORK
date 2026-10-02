@@ -27,6 +27,7 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 - Silver micro-mini + backless top (image job): `b991ae3b-cc2d-48cd-9f98-3e7d7cb5f8ba`
 - Bodysuit + patterned flares, kitchen (image job): `b11db960-c368-4fe5-b3c2-3f9704002ef6`
 - Bodysuit + flares, curvier — built from both full sheets to match her figure (image job): `f6a620db-cdea-4507-8a19-e67c65fbfd55` ← use the sheets (122cecf6 + c68b3ca2) as refs for body accuracy
+- Pilates fit check: white long-sleeve + black windbreaker + leggings, curvier (image job): `752a7258-d731-4dc5-9a7e-b4a4ba4314b6`
 - Hoodie/joggers full body (image job): `04b94967-3697-42de-9738-77e381ed916c` — use for Genjutsu on hip-focused / twerk-style dances; the crop-top + shorts reference gets NSFW-flagged on those.
 
 ## Remake log
@@ -41,6 +42,8 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 | 2026-10-02 | `61d59c38-b474-4ea8-995e-1bf3100bf2df` (hallway walk from behind, 5s) | Genjutsu | silver mini variant | 480p | NSFW-flagged (after render) |
 | 2026-10-02 | `5aa0ece6-f8bb-474f-93f3-629cb1e4ca24` (kitchen iced coffee + dance, 32s) | Genjutsu | bodysuit + flares | 480p | ✅ `9bf6938b-f4f9-45df-8703-a7af5e1bf6da` |
 | 2026-10-02 | same (kitchen iced coffee) | Genjutsu | bodysuit + flares, curvier (f6a620db) | 480p | ✅ `d865b5c4-723d-40d0-9d7a-994376cec8fa` |
+| 2026-10-02 | `84b62ae3-944d-435f-bb15-fdc7511bcde0` (Pilates fit check, 15s) | Genjutsu | windbreaker + leggings, curvier (752a7258) | 480p | NSFW-flagged at submit |
 
 ## Filter notes
 - Genjutsu's NSFW check runs twice: at submit and on the finished video. Revealing outfits (micro-mini, bikini, crop+shorts) filmed from behind/low or close-up tend to get flagged; leggings/hoodie looks on similar motion have passed.
+- 2026-10-02: a fully-clothed fit check was flagged at submit when using the curvier sheet-matched reference; the earlier leggings reference (d278cb60) passed on similar clips. The exaggerated proportions in the reference image may be what trips it.
