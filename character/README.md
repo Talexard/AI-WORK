@@ -25,6 +25,7 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 - Outfit: always the same as in the source clip.
 - Body: keep Sabrina's full curvy figure from the sheets (use both sheets `122cecf6` + `c68b3ca2` as image refs); never slimmed down.
 - Model: Genjutsu `hf_mult_motion_control`, 480p test first.
+- Higgsfield's video analysis can be wrong. Confirm the outfit/action description with the user before generating.
 
 ## Variants
 - Cropped hoodie + leggings full body (image job): `d278cb60-08af-41a1-99c0-565e2331bcff`
@@ -50,7 +51,7 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 | 2026-10-02 | same (kitchen iced coffee) | Genjutsu | bodysuit + flares, curvier (f6a620db) | 480p | ✅ `d865b5c4-723d-40d0-9d7a-994376cec8fa` |
 | 2026-10-02 | `84b62ae3-944d-435f-bb15-fdc7511bcde0` (Pilates fit check, 15s) | Genjutsu | windbreaker + leggings, curvier (752a7258) | 480p | NSFW-flagged at submit |
 | 2026-10-02 | same (Pilates fit check) | Genjutsu | windbreaker + leggings, moderate curves (65d2d9c1) | 480p | NSFW-flagged at submit |
-| 2026-10-02 | `03611138-dc98-473f-bc02-86d2256ac010` (skincare serum review, 18s) | Genjutsu | silk robe (68587a0a) | 480p | submitted `de1bb070-f59a-4774-989f-3227e0703b93` |
+| 2026-10-02 | `03611138-dc98-473f-bc02-86d2256ac010` | Genjutsu | silk robe (68587a0a) | 480p | ❌ wrong — Higgsfield's analysis misdescribed the clip (said skincare/serum review); job `de1bb070-f59a-4774-989f-3227e0703b93` kept but don't use. Needs redo once the user describes the real outfit/action |
 
 ## Filter notes
 - Genjutsu's NSFW check runs twice: at submit and on the finished video. Revealing outfits (micro-mini, bikini, crop+shorts) filmed from behind/low or close-up tend to get flagged; leggings/hoodie looks on similar motion have passed.
