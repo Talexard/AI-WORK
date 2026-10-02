@@ -31,3 +31,4 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 | 2026-10-02 | `945d38d7-8a27-42dd-87d5-a130b12dab99` (bedroom hip-shake dance, 6s) | Genjutsu | fullbody_front | 480p | NSFW-flagged (x2) |
 | 2026-10-02 | same | Genjutsu | hoodie variant | 480p | ✅ `0a752619-908c-44d8-9575-bd3efad0f44f` |
 | 2026-10-02 | same | Genjutsu | leggings variant | 480p | NSFW-flagged |
+| 2026-10-02 | `98bb5482-95be-45bc-a12d-bfefe429b16a` (locker room look-back + gym mirror selfie, 10s, 3 cuts) | Genjutsu | leggings variant | 480p | ✅ `d30af5eb-6700-4ee6-bbd7-e8bae28d604c` |
