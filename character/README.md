@@ -20,3 +20,12 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
   - sheet2: `c68b3ca2-16f8-4d9d-b33f-b83f0326842b`
   - fullbody_front: `c18b0dc9-e711-4591-8579-558a4227ef79` (use for Genjutsu)
   - face_front: `f64d98bd-f850-4a70-a6e0-dd2f3aa86662`
+
+## Variants
+- Hoodie/joggers full body (image job): `04b94967-3697-42de-9738-77e381ed916c` — use for Genjutsu on hip-focused / twerk-style dances; the crop-top + shorts reference gets NSFW-flagged on those.
+
+## Remake log
+| Date | Source video | Model | Ref | Res | Result |
+|---|---|---|---|---|---|
+| 2026-10-02 | `945d38d7-8a27-42dd-87d5-a130b12dab99` (bedroom hip-shake dance, 6s) | Genjutsu | fullbody_front | 480p | NSFW-flagged (x2) |
+| 2026-10-02 | same | Genjutsu | hoodie variant | 480p | ✅ `0a752619-908c-44d8-9575-bd3efad0f44f` |
