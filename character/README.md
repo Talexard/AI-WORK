@@ -23,6 +23,8 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 
 ## Variants
 - Cropped hoodie + leggings full body (image job): `d278cb60-08af-41a1-99c0-565e2331bcff`
+- Tropical bikini poolside (image job): `aaa226c5-cfc3-4794-adb0-647e4bdfb58e`
+- Silver micro-mini + backless top (image job): `b991ae3b-cc2d-48cd-9f98-3e7d7cb5f8ba`
 - Hoodie/joggers full body (image job): `04b94967-3697-42de-9738-77e381ed916c` — use for Genjutsu on hip-focused / twerk-style dances; the crop-top + shorts reference gets NSFW-flagged on those.
 
 ## Remake log
@@ -33,3 +35,8 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 | 2026-10-02 | same | Genjutsu | leggings variant | 480p | NSFW-flagged |
 | 2026-10-02 | `98bb5482-95be-45bc-a12d-bfefe429b16a` (locker room look-back + gym mirror selfie, 10s, 3 cuts) | Genjutsu | leggings variant | 480p | ✅ `d30af5eb-6700-4ee6-bbd7-e8bae28d604c` |
 | 2026-10-02 | `4fba8f08-969a-4c11-aa67-379796b4718f` (kitchen leggings try-on, turns/bends, 22s) | Genjutsu | leggings variant | 480p | ✅ `8d681fa6-2d9c-4f11-966a-3191550d895b` |
+| 2026-10-02 | `7330bae3-d308-43c0-a4c2-3b0cf0e803b7` (poolside, foot held to lens, 9s) | Genjutsu | bikini variant | 480p | NSFW-flagged (after render) |
+| 2026-10-02 | `61d59c38-b474-4ea8-995e-1bf3100bf2df` (hallway walk from behind, 5s) | Genjutsu | silver mini variant | 480p | NSFW-flagged (after render) |
+
+## Filter notes
+- Genjutsu's NSFW check runs twice: at submit and on the finished video. Revealing outfits (micro-mini, bikini, crop+shorts) filmed from behind/low or close-up tend to get flagged; leggings/hoodie looks on similar motion have passed.
