@@ -40,6 +40,7 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 | 2026-10-02 | `7330bae3-d308-43c0-a4c2-3b0cf0e803b7` (poolside, foot held to lens, 9s) | Genjutsu | bikini variant | 480p | NSFW-flagged (after render) |
 | 2026-10-02 | `61d59c38-b474-4ea8-995e-1bf3100bf2df` (hallway walk from behind, 5s) | Genjutsu | silver mini variant | 480p | NSFW-flagged (after render) |
 | 2026-10-02 | `5aa0ece6-f8bb-474f-93f3-629cb1e4ca24` (kitchen iced coffee + dance, 32s) | Genjutsu | bodysuit + flares | 480p | ✅ `9bf6938b-f4f9-45df-8703-a7af5e1bf6da` |
+| 2026-10-02 | same (kitchen iced coffee) | Genjutsu | bodysuit + flares, curvier (f6a620db) | 480p | ✅ `d865b5c4-723d-40d0-9d7a-994376cec8fa` |
 
 ## Filter notes
 - Genjutsu's NSFW check runs twice: at submit and on the finished video. Revealing outfits (micro-mini, bikini, crop+shorts) filmed from behind/low or close-up tend to get flagged; leggings/hoodie looks on similar motion have passed.
