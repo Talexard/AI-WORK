@@ -61,3 +61,12 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 - Genjutsu's NSFW check runs twice: at submit and on the finished video. Revealing outfits (micro-mini, bikini, crop+shorts) filmed from behind/low or close-up tend to get flagged; leggings/hoodie looks on similar motion have passed.
 - 2026-10-02: a fully-clothed fit check was flagged at submit when using the curvier sheet-matched reference; the earlier leggings reference (d278cb60) passed on similar clips. The exaggerated proportions in the reference image may be what trips it.
 - Pilates fit check (84b62ae3) was flagged with both curvy and moderate references, so the source clip itself is likely what trips the filter.
+
+## Photo remakes
+| Date | Source | Model | Result |
+|---|---|---|---|
+| 2026-10-03 | Night window, black sleeveless dress + gold necklaces + brown bag (`8ad3b65d`) | Nano Banana 2 | ✅ `9c705436-edb4-4bcb-9fb5-2a5c15717087` |
+| 2026-10-03 | Leaf-wallpaper hallway, black midi bodycon + bag, side-on look back (`896be220`) | Nano Banana 2 | ✅ `d1414a87-0eb3-4add-82e7-e7330eef15c3` |
+| 2026-10-03 | Wood-panel wall, black midi bodycon, hand in hair, facing away (`43e0190c`) | Nano Banana 2 | ✅ `da75c240-f60f-43ad-9333-4e37c285bdc6` |
+
+Photo notes: Nano Banana 2 with the source photo + face + both sheets works; GPT Image 2.5 flagged every photo in an earlier batch. Source person's tattoos are left out so Sabrina stays Sabrina.
