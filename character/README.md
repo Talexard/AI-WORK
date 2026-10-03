@@ -37,6 +37,7 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 - Sage green silk robe, bathroom, holding serum bottle (image job): `68587a0a-d6f8-4ebd-9365-b4ebe046ebe9`
 - Blue short-sleeve bodysuit, bathroom, full figure (image job): `e2fc1bcb-d825-4853-bf68-f691f2494442`
 - Black zip jacket + green athletic shorts + headphones, locker room, full figure (image job): `89a46f08-ee1e-429b-ad1b-64c85a26da90`
+- Light blue fitted tee + lavender leggings + gold necklace + smartwatch, full figure (image job): `27972c6b-9729-4769-80c6-a7e4583d1c98`
 - Hoodie/joggers full body (image job): `04b94967-3697-42de-9738-77e381ed916c` — use for Genjutsu on hip-focused / twerk-style dances; the crop-top + shorts reference gets NSFW-flagged on those.
 
 ## Remake log
@@ -56,6 +57,7 @@ AI character used for video remakes (Genjutsu / Seedance 2.5 on Higgsfield).
 | 2026-10-02 | `03611138-dc98-473f-bc02-86d2256ac010` | Genjutsu | silk robe (68587a0a) | 480p | ❌ wrong — Higgsfield's analysis misdescribed the clip (said skincare/serum review); job `de1bb070-f59a-4774-989f-3227e0703b93` kept but don't use. Needs redo once the user describes the real outfit/action |
 | 2026-10-02 | `0fe3ce83-b699-4dd0-a61b-9e7c5e6f1331` (blue bodysuit fit check, back to camera, 9s) | Genjutsu | blue bodysuit (e2fc1bcb) | 480p | NSFW-flagged after render — skipped |
 | 2026-10-03 | `58030dc3-d65c-4b8d-8252-e61098316691` (locker-room dance, facing camera, 14s) | Genjutsu | zip jacket + green shorts (89a46f08) | 480p | ✅ `f7b68060-73dd-41b4-aba3-8b04bfe49f8e` |
+| 2026-10-03 | `e5ccc635-c2c3-4eaf-aff2-87a2e06a94a8` (clapping dance, white room, 15s) | Genjutsu | blue tee + lavender leggings (27972c6b) | 480p | ✅ `0b09c00d-c397-4141-8142-37a9228c0f93` |
 
 ## Filter notes
 - Genjutsu's NSFW check runs twice: at submit and on the finished video. Revealing outfits (micro-mini, bikini, crop+shorts) filmed from behind/low or close-up tend to get flagged; leggings/hoodie looks on similar motion have passed.
