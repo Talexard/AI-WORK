@@ -1,7 +1,9 @@
 # Custom Craft Carpentry & Remodeling: Demo Notes
 
 **Site files:** `demos/custom-craft/` (static HTML, CSS and JS: no build step, free to host)
-**Previews:** `demos/previews/custom-craft-mobile.png`, `demos/previews/custom-craft-desktop.png`
+**Previews:** `demos/previews/custom-craft-desktop.png` (first screen), `custom-craft-desktop-full.png`, `custom-craft-mobile.png`
+
+**Design (v2, Nov 4 2026):** based on `research/creative-web-design-study.md`. Big editorial serif headline mixing upright and italic letters. Warm cream background with one safety-orange accent. Craft-themed details: a sliding tape-measure strip, a blueprint section where a house drawing draws itself as you scroll, a taped-on photo frame and a spinning badge. Also a scrolling services ticker and a numbered services list. Respects the phone's reduce-motion setting, and all content still shows if JavaScript is off. No code libraries.
 
 ## What's real vs. what needs confirming
 **Real (from the Champaign County Chamber listing):** business name, 219 E Court St, Urbana, OH 43078, (937) 561-2262, solo operator, residential remodeling and construction, chamber member.
