@@ -27,3 +27,14 @@ Screenshots: `screenshots/arizona-batch1.png`, `screenshots/arizona-busy-batch2.
 - **Then name the gap:** "But when someone finds you on their phone, your website [scrolls sideways / takes 11 seconds to load / is just a wall of menu links]. Some of those people leave before they call."
 - **Use their numbers:** "If your site loses even 2 or 3 customers a month, that's [average job × 3] a month."
 - **Price a little higher** for multi-location or established businesses: $1,500–$2,500 one-time. They have the budget, and a too-cheap quote makes them doubt the quality.
+
+---
+
+## Round 2 prospects (added Nov 6, 2026)
+| Business | Phone | Activity | Website problem |
+|---|---|---|---|
+| **Schorie Auto Repair** (Mesa, 6056 E Baseline Rd) | **(480) 725-6227** (number on their site; listings also show (480) 287-5770 and (480) 725-2095) | **4.6★ with about 753 Google reviews** (per Lantern); free detailed estimates; Mon–Fri 7:30–5:30 | The page scrolls sideways on phones, it's slow (about 11 s), there's no contact form, and the top is cluttered. |
+| **Re-New Cabinets** (Chandler, 6503 W Frye Rd) | **(480) 361-3121** | **4.8★ with about 102 Angi reviews**, 4.6★ with about 173 on Birdeye, about 70 on Yelp, 12+ years in business | © 2020 footer, a very heavy page (about 53 MB), no contact form. A cabinet job is worth thousands, so a site that loses leads costs them a lot. |
+| **Peixoto Coffee** (Chandler) | **(480) 275-2843** | **4.7★ with about 1,448 reviews** (Birdeye), 4.5★ with about 949 on Yelp, a family coffee-farm roaster | © 2016 footer, no tap-to-call, no contact form. The design is OK, so pitch improvements (online shop, events, wholesale), not a rescue. |
+| **Dragon Wok Fine Chinese** (Gilbert) | **(480) 782-6889** | 4.5★ with about 123 reviews; says it has been a "Top 100 Chinese Restaurant in the USA" since 2008 | About 177 MB page, about 13 s to load, tiny text. |
+| **Handlebar J Saloon** (Scottsdale) | **(480) 948-0110** | Family-run since 1975, famous country music venue | A pop-up covers a dark page with an unreadable logo; almost nothing visible. |
