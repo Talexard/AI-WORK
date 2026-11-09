@@ -37,7 +37,7 @@ It works best on your phone, since that's how most of your customers will see it
 - **You own the website and everything on it.** It's yours to keep.
 - Two rounds of changes, so it's exactly how you want it.
 - A simple walkthrough when it goes live.
-- **Your only ongoing cost is the domain renewal you already pay** (about $15–$20 a year). I can host the site for free on a modern, fast service, which may let you drop your current hosting bill.
+- **Your only ongoing cost is the domain renewal you already pay** (about $15–$20 a year). The new site can be hosted for free on a fast, modern service, set up in your name, which may let you drop your current hosting bill.
 - Edits after launch are available whenever you need them ($50 per small change). No contracts, no subscription.
 
 **Timeline and payment**
