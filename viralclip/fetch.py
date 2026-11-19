@@ -73,6 +73,11 @@ def fetch(url_or_path: str, workdir: Path, cookies: str | None = None,
                                "--sub-langs", "live_chat", url_or_path])
         chat = next(workdir.glob("source*.live_chat.json"), None)
 
+    # 4) YouTube's own captions (word-timed) - instant alternative to Whisper
+    subprocess.run(base + ["--skip-download", "--write-auto-subs", "--write-subs",
+                           "--sub-langs", "en.*,en", "--sub-format", "json3",
+                           url_or_path])
+
     return Source(
         video=video, workdir=workdir, title=info.get("title", ""), url=url_or_path,
         duration=float(info.get("duration") or probe_duration(video)),

@@ -17,7 +17,7 @@ from . import signals as S
 from .detect import DEFAULT_WEIGHTS, detect
 from .fetch import fetch
 from .render import render, slug
-from .transcribe import all_words, transcribe
+from .transcribe import all_words, find_youtube_captions, from_youtube_json3, transcribe
 
 
 def hms(t: float) -> str:
@@ -40,6 +40,8 @@ def main(argv=None):
     ap.add_argument("--whisper-model", default="small", help="tiny/base/small/medium/large-v3")
     ap.add_argument("--language", default=None)
     ap.add_argument("--no-transcribe", action="store_true")
+    ap.add_argument("--whisper", action="store_true",
+                    help="always use Whisper even if YouTube captions exist (slower, more accurate)")
     ap.add_argument("--transcript", help="use an existing transcript JSON (same format)")
     ap.add_argument("--scenes", action="store_true", help="also use scene-cut density (slower)")
     ap.add_argument("--ai", action="store_true", help="re-rank & write hooks with Claude")
@@ -66,6 +68,10 @@ def main(argv=None):
     transcript = {"segments": []}
     if a.transcript:
         transcript = json.loads(Path(a.transcript).read_text())
+    elif not a.no_transcribe and not a.whisper and find_youtube_captions(work):
+        cap = find_youtube_captions(work)
+        print(f"      using YouTube captions ({cap.name})")
+        transcript = from_youtube_json3(cap)
     elif not a.no_transcribe:
         transcript = transcribe(src.video, work / "transcript.json", a.whisper_model, a.language)
     words = all_words(transcript)
