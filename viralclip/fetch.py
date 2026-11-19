@@ -4,6 +4,7 @@ live-chat replay when the video was a livestream."""
 from __future__ import annotations
 
 import json
+import shutil
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -42,6 +43,10 @@ def fetch(url_or_path: str, workdir: Path, cookies: str | None = None,
         return src
 
     base = ["yt-dlp", "--no-playlist", "-o", str(workdir / "source.%(ext)s")]
+    # yt-dlp needs a JavaScript runtime for YouTube; it uses deno by default,
+    # so point it at node if that's what's installed.
+    if not shutil.which("deno") and shutil.which("node"):
+        base += ["--js-runtimes", "node"]
     if cookies:
         base += ["--cookies", cookies]
     if cookies_from_browser:
