@@ -254,7 +254,7 @@ IRONY_SETUP = [
     r"\bwatch this\b", r"\bi got this\b", r"\bi'?ve got this\b", r"\btrust me\b",
     r"\beasy\b", r"\bno problem\b", r"\bi'?m (the best|so good|a pro|cracked|nice)\b",
     r"\bperfect\b", r"\bnothing can (stop|go wrong)\b", r"\bwhat could go wrong\b",
-    r"\bsmooth\b", r"\bcalm(ly)?\b", r"\bjust gonna\b", r"\bi know what i'?m doing\b",
+    r"\bsmooth\b", r"\bcalm(ly)?\b", r"\bi know what i'?m doing\b",
     r"\bwe'?re (good|fine|safe|chilling)\b", r"\bi'?m (good|fine|safe)\b", r"\bgenius\b",
 ]
 IRONY_PAYOFF = [
