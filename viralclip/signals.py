@@ -3,6 +3,7 @@ value per second of video, already normalised to roughly 0..1 (0 = normal,
 1 = extreme for this video)."""
 from __future__ import annotations
 
+import bisect
 import json
 import re
 import subprocess
@@ -141,24 +142,28 @@ def load_chat(path: Path) -> list[tuple[float, str]]:
     return msgs
 
 
-def chat_signals(msgs: list[tuple[float, str]], n: int, lag: float = 6.0) -> dict[str, np.ndarray]:
+def chat_signals(msgs: list[tuple[float, str]], n: int, lag: float = 6.0,
+                 extra: dict[str, float] | None = None) -> dict[str, np.ndarray]:
     """Chat velocity + hype words, shifted earlier by `lag` seconds because
     chat reacts after the moment happens."""
     vel = np.zeros(n)
     hype = np.zeros(n)
     laugh = np.zeros(n)
     confused = np.zeros(n)
+    pats = _HYPE_RX + compile_patterns(extra or {})
     for t, text in msgs:
         i = int(t - lag)
         if 0 <= i < n:
             vel[i] += 1
-            hype[i] += sum(w for rx, w in _HYPE_RX if rx.search(text))
+            hype[i] += sum(w for rx, w in pats if rx.search(text))
             laugh[i] += bool(LAUGH_RX.search(text))
             confused[i] += bool(CONFUSED_RX.search(text))
     vel_s, hype_s = smooth(vel, 5), smooth(hype, 5)
     return {
         "chat_velocity": squash(robust_z(vel_s, 121), 1.5, 6),
         "chat_hype": squash(robust_z(hype_s, 121), 1.5, 6),
+        # chat laughing = funny to the audience, even when he isn't trying to be
+        "chat_laugh": squash(robust_z(smooth(laugh, 5), 121), 1.5, 6),
         "chat_laugh_frac": smooth(laugh, 5) / np.maximum(vel_s, 1e-6),
         "chat_confused_frac": smooth(confused, 5) / np.maximum(vel_s, 1e-6),
     }
@@ -196,32 +201,98 @@ CLUTCH_RX = re.compile(r"let'?s go+|clutch|insane|no way|holy|oh my god|ace|one 
 SCARE_RX = re.compile(r"\bwhat was that\b|\brun\b|\bnope\b|\bhelp\b|\bscared\b|\bjump", re.I)
 
 
-def speech_signals(words: list[dict], n: int) -> dict[str, np.ndarray]:
+def phrase_hits(words: list[dict], rx: re.Pattern) -> list[float]:
+    """Times where a (possibly multi-word) regex matches the spoken text."""
+    if not words:
+        return []
+    offs, parts, pos = [], [], 0
+    for w in words:
+        offs.append(pos)
+        parts.append(w["word"])
+        pos += len(w["word"]) + 1
+    text = " ".join(parts)
+    out = []
+    for m in rx.finditer(text):
+        i = bisect.bisect_right(offs, m.start()) - 1
+        out.append(words[max(0, i)]["start"])
+    return out
+
+
+def compile_patterns(d: dict[str, float]) -> list[tuple[re.Pattern, float]]:
+    return [(re.compile(k, re.I), float(w)) for k, w in d.items()]
+
+
+def speech_signals(words: list[dict], n: int,
+                   extra: dict[str, float] | None = None) -> dict[str, np.ndarray]:
     hype = np.zeros(n)
     rate = np.zeros(n)
-    caps = np.zeros(n)
+    self_laugh = np.zeros(n)
     for w in words:
         i = int(w["start"])
-        if not 0 <= i < n:
-            continue
-        rate[i] += 1
-        txt = w["word"]
-        hype[i] += sum(wt for rx, wt in _SPEECH_RX if rx.search(txt))
-        caps[i] += txt.endswith("!")
-    # two-word phrases ("no way", "oh my god", "let's go")
-    for a, b, c in zip(words, words[1:], words[2:] + [{"word": ""}]):
-        phrase = f"{a['word']} {b['word']} {c['word']}"
-        i = int(a["start"])
         if 0 <= i < n:
-            for rx, wt in _SPEECH_RX:
-                if " " in rx.pattern and rx.search(phrase):
-                    hype[i] += wt * 0.5
-    hype_s = smooth(hype + caps * 0.5, 3)
-    talk = smooth(rate, 3)
+            rate[i] += 1
+            hype[i] += 0.5 * w["word"].endswith("!")
+    for rx, wt in _SPEECH_RX + compile_patterns(extra or {}):
+        for t in phrase_hits(words, rx):
+            if 0 <= int(t) < n:
+                hype[int(t)] += wt
+    for t in phrase_hits(words, LAUGH_SPEECH_RX):
+        if 0 <= int(t) < n:
+            self_laugh[int(t)] += 1
     return {
-        "speech_hype": np.clip(hype_s / 1.5, 0, 1),
-        "speech_rate": squash(robust_z(talk, 61), 1.0, 4.0),
+        "speech_hype": np.clip(smooth(hype, 3) / 1.5, 0, 1),
+        "speech_rate": squash(robust_z(smooth(rate, 3), 61), 1.0, 4.0),
+        "self_laugh": np.clip(smooth(self_laugh, 5) * 2, 0, 1),
     }
+
+
+LAUGH_SPEECH_RX = re.compile(r"\[(laughter|laughs|laughing)\]|\bha(ha)+\b|\bhehe+\b|\blmao\b", re.I)
+
+# Overconfidence / setup lines and the "it went wrong" payoffs that follow.
+# This is the core of unintentional comedy: he says one thing, the game does another.
+IRONY_SETUP = [
+    r"\bwatch this\b", r"\bi got this\b", r"\bi'?ve got this\b", r"\btrust me\b",
+    r"\beasy\b", r"\bno problem\b", r"\bi'?m (the best|so good|a pro|cracked|nice)\b",
+    r"\bperfect\b", r"\bnothing can (stop|go wrong)\b", r"\bwhat could go wrong\b",
+    r"\bsmooth\b", r"\bcalm(ly)?\b", r"\bjust gonna\b", r"\bi know what i'?m doing\b",
+    r"\bwe'?re (good|fine|safe|chilling)\b", r"\bi'?m (good|fine|safe)\b", r"\bgenius\b",
+]
+IRONY_PAYOFF = [
+    r"\bno+ no+\b", r"\bnoo+\b", r"\bwhy+\b", r"\bwhat (just )?happened\b",
+    r"\bhow\b", r"\bbro+\b", r"\bwhat+\b", r"\bf+u+c+k", r"\bsh+i+t", r"\bdamn\b",
+    r"\bi'?m dead\b", r"\bnever ?mind\b", r"\bnope\b", r"\boh no\b", r"\bwait\b",
+    r"\bmy bad\b", r"\bi didn'?t mean\b", r"\bthat'?s not\b",
+]
+
+
+def irony_signal(words: list[dict], n: int, onset: np.ndarray, loud: np.ndarray,
+                 setup: list[str] | None = None, payoff: list[str] | None = None,
+                 window: float = 15.0) -> np.ndarray:
+    """Confident line followed within `window` s by a payoff (panic words or a
+    loud/sudden reaction). Marks the payoff moment; clip timing for 'fail'
+    reaches back far enough to include the setup line."""
+    out = np.zeros(n)
+    srx = re.compile("|".join(setup or IRONY_SETUP), re.I)
+    prx = re.compile("|".join(payoff or IRONY_PAYOFF), re.I)
+    setups = phrase_hits(words, srx)
+    pays = np.array(phrase_hits(words, prx))
+    for t in setups:
+        a, b = int(t) + 2, min(n, int(t + window))
+        if a >= b:
+            continue
+        best_i, best_v = None, 0.0
+        if len(pays):
+            hit = pays[(pays > t + 1.5) & (pays < t + window)]
+            if len(hit):
+                best_i, best_v = int(hit[0]), 0.7
+        react = np.maximum(onset[a:b], loud[a:b])
+        if react.max() > 0.4 and react.max() + 0.3 > best_v:
+            j = a + int(np.argmax(react))
+            best_i = j if best_i is None else min(best_i, j)
+            best_v = min(1.0, max(best_v, react.max()) + (0.3 if best_v else 0))
+        if best_i is not None and best_i < n:
+            out[best_i] = max(out[best_i], best_v)
+    return smooth(out, 3) * 1.5
 
 
 # ----------------------------------------------------------------- scenes

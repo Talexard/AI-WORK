@@ -31,7 +31,8 @@ SCHEMA = {
                     "virality": {"type": "integer", "description": "1-10"},
                     "archetype": {"type": "string",
                                   "enum": ["rage", "clutch", "funny", "scare", "wtf",
-                                           "story", "hype", "wholesome", "drama"]},
+                                           "story", "hype", "wholesome", "drama",
+                                           "fail", "first_look"]},
                     "start_offset": {"type": "number",
                                      "description": "seconds to move start (negative=earlier), -10..10"},
                     "end_offset": {"type": "number", "description": "seconds to move end, -10..10"},
@@ -52,7 +53,7 @@ SCHEMA = {
 
 
 def rerank(clips: list[Clip], video_title: str, creator: str = "",
-           game_hint: str = "", effort: str = "medium") -> list[Clip]:
+           game_hint: str = "", effort: str = "medium", notes: str = "") -> list[Clip]:
     import anthropic
 
     client = anthropic.Anthropic()
@@ -66,6 +67,7 @@ def rerank(clips: list[Clip], video_title: str, creator: str = "",
     prompt = (
         f"Video: {video_title!r}" + (f" by {creator}" if creator else "") +
         (f"\nGame: {game_hint}" if game_hint else "") +
+        (f"\n\nWhat to look for with this creator/game:\n{notes}" if notes else "") +
         "\n\nBelow are candidate clips found by audio/chat/replay signals. "
         "Score EVERY candidate's virality 1-10 (be harsh: 8+ means it could "
         "realistically do 100k+ views), suggest start/end trims so it opens on "

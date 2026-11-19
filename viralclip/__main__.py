@@ -53,7 +53,16 @@ def main(argv=None):
     ap.add_argument("--no-captions", action="store_true")
     ap.add_argument("--dry-run", action="store_true", help="find clips but don't render")
     ap.add_argument("--weights", help='JSON to override signal weights, e.g. \'{"loudness":0.3}\'')
+    ap.add_argument("--profile", help="creator/game profile JSON (e.g. profiles/dashie_gta6.json)")
     a = ap.parse_args(argv)
+    prof = json.loads(Path(a.profile).read_text(encoding="utf-8")) if a.profile else {}
+    if prof:
+        print(f"Profile: {prof.get('name', a.profile)}")
+        a.game = a.game or prof.get("game", "")
+        if "layout" in prof and "--layout" not in (argv or __import__("sys").argv):
+            a.layout = prof["layout"]
+        if "zoom" in prof and "--zoom" not in (argv or __import__("sys").argv):
+            a.zoom = prof["zoom"]
 
     out = Path(a.out)
     work = out / "_work"
@@ -82,14 +91,17 @@ def main(argv=None):
     used = ["audio"]
     if src.chat_file and Path(src.chat_file).exists():
         msgs = S.load_chat(Path(src.chat_file))
-        sig.update(S.chat_signals(msgs, n, a.chat_lag))
+        sig.update(S.chat_signals(msgs, n, a.chat_lag, prof.get("chat_hype_extra")))
         used.append(f"chat ({len(msgs)} msgs)")
     if src.heatmap:
         sig["heatmap"] = S.heatmap_signal(src.heatmap, n)
         used.append("most-replayed heatmap")
     if words:
-        sig.update(S.speech_signals(words, n))
+        sig.update(S.speech_signals(words, n, prof.get("speech_hype_extra")))
         used.append("speech")
+        sig["irony"] = S.irony_signal(words, n, sig["onset"], sig["loudness"],
+                                      prof.get("irony_setup"), prof.get("irony_payoff"))
+        used.append("confident→fail")
     if a.scenes:
         sig["scenes"] = S.scene_signal(src.video, n, work / "scenes.npy")
         used.append("scenes")
@@ -97,15 +109,18 @@ def main(argv=None):
 
     print("[4/5] Finding moments…")
     weights = dict(DEFAULT_WEIGHTS)
+    weights.update(prof.get("weights", {}))
     if a.weights:
         weights.update(json.loads(a.weights))
     clips, score = detect(sig, transcript, words, src.duration, a.count, a.min_len,
-                          a.max_len, weights, pool_factor=2.0 if a.ai else 1.3)
+                          a.max_len, weights, pool_factor=2.0 if a.ai else 1.3,
+                          hook_templates=prof.get("hooks"))
     if a.ai and clips:
         from .llm import rerank
         pool = clips[: max(a.count + 15, int(a.count * 1.8))]
         print(f"      asking Claude to judge {len(pool)} candidates…")
-        clips = rerank(pool, src.title, src.uploader, a.game)
+        clips = rerank(pool, src.title, src.uploader or prof.get("creator", ""), a.game,
+                       notes=prof.get("notes", ""))
     clips = clips[: a.count]
     clips.sort(key=lambda c: c.score, reverse=True)
     if len(clips) < a.count:

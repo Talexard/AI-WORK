@@ -1,0 +1,64 @@
+{
+  "name": "Dashie - GTA 6",
+  "creator": "Dashie",
+  "game": "GTA 6",
+  "layout": "blur",
+  "zoom": 1.0,
+  "notes": "Dashie is funniest when he is NOT trying to be: he's overconfident and then fails immediately, confidently explains something wrong, gets confused by simple things, talks to/argues with NPCs as if they're real people, makes random noises/voices, panics over nothing, reacts dramatically to a small thing, or deadpans while chaos happens. Prioritise those over generic loud moments. GTA 6 is brand new, so first reactions to new mechanics, Vice City/Leonida details, wild NPCs ('Florida man' energy), police chases, wanted-level escapes, ragdoll/physics fails and car crashes are high value. Hashtags: game-specific first (#gta6 #gtavi #gta6clips), then #dashie #gaming.",
+  "weights": {
+    "chat_velocity": 0.15,
+    "chat_hype": 0.1,
+    "chat_laugh": 0.2,
+    "heatmap": 0.15,
+    "loudness": 0.1,
+    "onset": 0.06,
+    "speech_hype": 0.12,
+    "speech_rate": 0.02,
+    "self_laugh": 0.04,
+    "irony": 0.16,
+    "scenes": 0.0
+  },
+  "speech_hype_extra": {
+    "\\b(cops?|police|wanted|five stars?|5 stars?|swat|helicopter)\\b": 0.6,
+    "\\b(lucia|jason|vice city|leonida|gator|alligator|florida man)\\b": 0.5,
+    "\\b(sir|ma'?am|excuse me|bro what are you doing|why (is|are) (he|she|they|you))\\b": 0.7,
+    "\\b(my car|i crashed|where am i|i'?m lost|how do i)\\b": 0.6,
+    "\\b(what is (this|that|he doing)|that'?s (crazy|wild)|bruh)\\b": 0.6
+  },
+  "chat_hype_extra": {
+    "\\bdashie\\b.*\\b(lol|lmao|💀)|\\bclassic dashie\\b|\\bdash\\b": 1.0,
+    "\\bbro\\b|\\bnah+\\b|\\bhe'?s (so )?(bad|cooked|done)\\b|\\bcooked\\b": 0.8,
+    "\\bgta\\b|\\bwanted\\b|\\bcops\\b": 0.4
+  },
+  "hooks": {
+    "fail": [
+      "He was SO confident 💀",
+      "He really said 'watch this' 😭",
+      "What could possibly go wrong",
+      "This is why he can't have nice things 😂"
+    ],
+    "funny": [
+      "He didn't mean to be this funny 😂",
+      "I can't stop laughing 💀",
+      "Bro is NOT okay 😭"
+    ],
+    "first_look": [
+      "GTA 6 is actually insane 🤯",
+      "First time playing GTA 6 😳",
+      "They added WHAT to GTA 6?"
+    ],
+    "hype": [
+      "GTA 6 chaos 🔥",
+      "Only in GTA 6 💀",
+      "Chat went INSANE"
+    ],
+    "rage": [
+      "GTA 6 broke him 😭",
+      "He completely lost it 💀"
+    ],
+    "wtf": [
+      "Only in GTA 6… 🤨",
+      "Wait what just happened??"
+    ]
+  }
+}

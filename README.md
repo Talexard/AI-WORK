@@ -48,6 +48,25 @@ python -m viralclip "URL" --dry-run
 
 If YouTube says "Sign in to confirm you're not a bot", add `--cookies-from-browser chrome` (or firefox, edge).
 
+### Creator profiles
+`--profile profiles/dashie_gta6.json` tunes the tool for a creator and game. It sets:
+- the signal weights,
+- extra hype phrases to listen for in speech and in chat,
+- the hook templates,
+- notes for the AI pass.
+
+The Dashie profile puts more weight on **unintentional comedy**:
+- chat laughing even when he isn't trying to be funny,
+- a **confident line followed by a fail** ("watch this… no no no why"),
+- confusion and talking to NPCs,
+- GTA 6 first-look reactions.
+
+Copy the file to make a profile for another creator.
+
+```bash
+python -m viralclip "URL" -n 30 --profile profiles/dashie_gta6.json
+```
+
 ### Output (`-o` folder)
 - `01_rage_he-completely-lost-it.mp4`, … : ranked 1080×1920 clips with captions, the hook and normalised loudness
 - `clips.csv` / `clips.json` : timestamps, score, clip type, hook, why it was picked, and a YouTube link to each moment (plus title and hashtags with `--ai`)

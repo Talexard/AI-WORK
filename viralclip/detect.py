@@ -8,6 +8,9 @@ import numpy as np
 
 from .signals import RAGE_RX, CLUTCH_RX, SCARE_RX, smooth
 
+FIRST_LOOK_RX = re.compile(r"\b(look at (this|that)|so (pretty|beautiful|realistic|detailed)|"
+                           r"graphics|first time|you can (actually )?|they added|wow+)\b", re.I)
+
 # Default weights. Missing signals are dropped and the rest re-normalised,
 # so a video without chat still scores on audio + speech + heatmap.
 DEFAULT_WEIGHTS = {
@@ -19,6 +22,9 @@ DEFAULT_WEIGHTS = {
     "speech_hype": 0.10,
     "speech_rate": 0.03,
     "scenes": 0.03,
+    "chat_laugh": 0.08,
+    "self_laugh": 0.03,
+    "irony": 0.0,       # enabled by profiles (e.g. unintentionally funny creators)
 }
 
 # How much setup (seconds before the peak) and reaction (after) each type needs
@@ -30,6 +36,8 @@ ARCHETYPE_TIMING = {
     "wtf":    (10, 5),
     "story":  (22, 5),
     "hype":   (12, 5),
+    "fail":   (15, 6),   # needs the confident setup line in frame
+    "first_look": (14, 5),
 }
 
 HOOK_TEMPLATES = {
@@ -40,6 +48,9 @@ HOOK_TEMPLATES = {
     "wtf":    ["Wait… what just happened?? 🤨", "Nobody can explain this", "How is this possible"],
     "story":  ["You have to hear this 👀", "He really said this 😳", "Chat went crazy"],
     "hype":   ["Chat went INSANE 🔥", "This moment was crazy", "Wait for it…"],
+    "fail":   ["He was SO confident 💀", "He really thought he had it 😭",
+               "What could go wrong?", "It did not go as planned 😂"],
+    "first_look": ["This is actually insane 🤯", "First time seeing this 😳"],
 }
 
 
@@ -151,7 +162,15 @@ def classify(sig: dict[str, np.ndarray], peak: int, text: str) -> tuple[str, lis
             reasons.append(f"{label} ({v:.2f})")
     laugh, confused = g("chat_laugh_frac"), g("chat_confused_frac")
     t = text.lower()
-    if laugh > 0.35 or re.search(r"\bha(ha)+|lmao|i'?m dying", t):
+    for k, label in [("chat_laugh", "chat laughing"), ("irony", "confident → fail"),
+                     ("self_laugh", "he's laughing")]:
+        if g(k) > 0.35:
+            reasons.append(f"{label} ({g(k):.2f})")
+    if g("irony") > 0.4:
+        arch = "fail"
+    elif FIRST_LOOK_RX.search(t) and g("loudness") < 0.6:
+        arch = "first_look"
+    elif laugh > 0.35 or g("chat_laugh") > 0.5 or re.search(r"\bha(ha)+|lmao|i'?m dying", t):
         arch = "funny"
     elif g("onset") > 0.5 and (SCARE_RX.search(t) or g("loudness") > 0.6) and not RAGE_RX.search(t):
         arch = "scare"
@@ -194,20 +213,22 @@ def pick_quote(segments: list[dict], peak: float, sig_hype: np.ndarray | None) -
     return best.strip(" ,.")
 
 
-def make_hook(arch: str, quote: str, idx: int) -> str:
+def make_hook(arch: str, quote: str, idx: int, templates: dict | None = None) -> str:
     """Use the streamer's own words when they're short and punchy, otherwise a
     template for the clip type (rotated so 25 clips don't share one hook)."""
     words = quote.split()
     if 3 <= len(words) <= 7 and len(quote) <= 38 and (
             any(ch in quote for ch in "!?") or idx % 2 == 0):
         return f'"{quote.upper()}"'
-    opts = HOOK_TEMPLATES.get(arch, HOOK_TEMPLATES["hype"])
+    tpl = {**HOOK_TEMPLATES, **(templates or {})}
+    opts = tpl.get(arch) or tpl["hype"]
     return opts[idx % len(opts)]
 
 
 def detect(sig: dict[str, np.ndarray], transcript: dict | None, words: list[dict],
            duration: float, count: int = 25, min_len: float = 15, max_len: float = 60,
-           weights: dict | None = None, pool_factor: float = 2.0) -> tuple[list[Clip], np.ndarray]:
+           weights: dict | None = None, pool_factor: float = 2.0,
+           hook_templates: dict | None = None) -> tuple[list[Clip], np.ndarray]:
     weights = weights or DEFAULT_WEIGHTS
     n = int(duration)
     score = combine({k: v for k, v in sig.items() if k in weights}, weights)
@@ -248,7 +269,7 @@ def detect(sig: dict[str, np.ndarray], transcript: dict | None, words: list[dict
     clips.sort(key=lambda c: c.score, reverse=True)
     for i, c in enumerate(clips):
         c.quote = pick_quote(segs, c.peak, sig.get("speech_hype"))
-        c.hook = make_hook(c.archetype, c.quote, i)
+        c.hook = make_hook(c.archetype, c.quote, i, hook_templates)
     return clips, score
 
 
